@@ -1,0 +1,2 @@
+# Raqel
+Tarot IA
