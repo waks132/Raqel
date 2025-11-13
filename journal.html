@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal d'Intégration - Raqel's Mystical Tarot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #4C1D95;
+            --primary-teal: #0F766E;
+            --primary-gold: #D97706;
+            --accent-sage: #84CC16;
+            --accent-rose: #EC4899;
+            --neutral-cream: #FEF7ED;
+            --neutral-charcoal: #374151;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-teal) 100%);
+            min-height: 100vh;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .content-section {
+            background: rgba(254, 247, 237, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reading-card {
+            transition: all 0.3s ease;
+        }
+        
+        .reading-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black bg-opacity-30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="title-font text-2xl font-bold text-white">Raqel's Tarot</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-yellow-300 transition-colors">Reading</a>
+                    <a href="gallery.html" class="text-white hover:text-yellow-300 transition-colors">Gallery</a>
+                    <a href="about.html" class="text-white hover:text-yellow-300 transition-colors">About</a>
+                    <a href="#journal" class="text-yellow-300">Journal</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="title-font text-5xl md:text-7xl font-bold text-white mb-6 fade-in">
+                Journal d'Intégration
+            </h1>
+            <p class="text-xl text-yellow-200 max-w-3xl mx-auto fade-in">
+                Suivez votre chemin avec Raqel-Ψ : historique de vos tirages et espace de réflexion
+            </p>
+        </div>
+    </section>
+
+    <!-- Journal Content -->
+    <section id="journal" class="py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Quick Actions -->
+            <div class="content-section rounded-lg p-8 mb-12 fade-in">
+                <h2 class="title-font text-3xl font-bold text-gray-800 mb-6 text-center">Votre espace de suivi</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <a href="index.html" class="inline-block bg-purple-800 hover:bg-purple-700 text-white px-6 py-4 rounded-lg transition-all">
+                            <div class="text-2xl mb-2">🔮</div>
+                            <div class="font-semibold">Nouveau tirage</div>
+                            <div class="text-sm opacity-80">Commencer un accompagnement</div>
+                        </a>
+                    </div>
+                    <div class="text-center">
+                        <button id="export-journal" class="inline-block bg-teal-800 hover:bg-teal-700 text-white px-6 py-4 rounded-lg transition-all">
+                            <div class="text-2xl mb-2">📄</div>
+                            <div class="font-semibold">Exporter mon journal</div>
+                            <div class="text-sm opacity-80">Télécharger mon chemin</div>
+                        </button>
+                    </div>
+                    <div class="text-center">
+                        <button id="clear-journal" class="inline-block bg-rose-800 hover:bg-rose-700 text-white px-6 py-4 rounded-lg transition-all">
+                            <div class="text-2xl mb-2">🔄</div>
+                            <div class="font-semibold">Nouveau cycle</div>
+                            <div class="text-sm opacity-80">Commencer un nouveau chapitre</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reading History -->
+            <div class="content-section rounded-lg p-8 mb-12 fade-in">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="title-font text-3xl font-bold text-gray-800">Vos tirages récents</h2>
+                    <div class="text-sm text-gray-600">
+                        <span id="reading-count">0</span> tirages enregistrés
+                    </div>
+                </div>
+                
+                <div id="readings-history" class="space-y-6">
+                    <!-- Readings will be inserted here -->
+                </div>
+                
+                <div id="no-readings" class="text-center py-12 text-gray-500">
+                    <div class="text-4xl mb-4">📖</div>
+                    <p class="text-lg mb-4">Aucun tirage enregistré pour le moment</p>
+                    <a href="index.html" class="bg-purple-800 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-colors inline-block">
+                        Faire mon premier tirage
+                    </a>
+                </div>
+            </div>
+
+            <!-- Integration Notes -->
+            <div class="content-section rounded-lg p-8 fade-in">
+                <h2 class="title-font text-3xl font-bold text-gray-800 mb-6">Notes d'intégration</h2>
+                
+                <div class="mb-6">
+                    <label class="block text-lg font-semibold text-gray-800 mb-3">Qu'avez-vous découvert aujourd'hui ?</label>
+                    <textarea id="integration-note" class="w-full h-32 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Notez ici vos réflexions, prises de conscience, ou intentions suite à vos tirages..."></textarea>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-lg font-semibold text-gray-800 mb-3">Micro-geste pour aujourd'hui</label>
+                    <input type="text" id="micro-gesture" class="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Un petit geste concret que je peux faire aujourd'hui...">
+                </div>
+                
+                <button id="save-note" class="bg-purple-800 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-colors">
+                    Sauvegarder ma réflexion
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 py-8 mt-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="title-font text-2xl text-white mb-4">Raqel's Mystical Tarot</div>
+            <p class="text-gray-300">© 2025 Raqel's Mystical Tarot. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="journal.js"></script>
+</body>
+</html>

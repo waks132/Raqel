@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raqel's Mystical Tarot - Art Nouveau Oracle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #4C1D95;
+            --primary-teal: #0F766E;
+            --primary-gold: #D97706;
+            --accent-sage: #84CC16;
+            --accent-rose: #EC4899;
+            --neutral-cream: #FEF7ED;
+            --neutral-charcoal: #374151;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-teal) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .hero-bg {
+            background-image: url('./hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .card-back {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-purple) 100%);
+            border: 3px solid var(--primary-gold);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .card-front {
+            background: var(--neutral-cream);
+            border: 2px solid var(--primary-gold);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .mystical-glow {
+            box-shadow: 0 0 30px rgba(217, 119, 6, 0.3);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reading-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .reading-card:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+        
+        .interpretation-text {
+            background: rgba(254, 247, 237, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black bg-opacity-30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="title-font text-2xl font-bold text-white">Raqel's Tarot</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#reading" class="text-white hover:text-yellow-300 transition-colors">Reading</a>
+                    <a href="gallery.html" class="text-white hover:text-yellow-300 transition-colors">Gallery</a>
+                    <a href="about.html" class="text-white hover:text-yellow-300 transition-colors">About</a>
+                    <a href="journal.html" class="text-white hover:text-yellow-300 transition-colors">Journal</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <h1 class="title-font text-6xl md:text-8xl font-bold text-white mb-6 floating">
+                Raqel's Mystical Tarot
+            </h1>
+            <p class="text-xl md:text-2xl text-yellow-200 mb-8 max-w-3xl mx-auto">
+                <strong>Raqel-Ψ n'est pas un simple tarot.</strong><br>
+                C'est un espace pour t'aider à stabiliser ton état intérieur, jour après jour.
+            </p>
+            
+            <!-- Three Pillars -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+                <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 text-center">
+                    <div class="text-3xl mb-3">🔮</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Explorer</h3>
+                    <p class="text-yellow-200 text-sm">Tirages 3 cartes pour nommer ce qui se passe</p>
+                </div>
+                <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 text-center">
+                    <div class="text-3xl mb-3">🌱</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Intégrer</h3>
+                    <p class="text-yellow-200 text-sm">Questions de réflexion + micro-pratiques</p>
+                </div>
+                <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-6 text-center">
+                    <div class="text-3xl mb-3">📈</div>
+                    <h3 class="text-lg font-bold text-white mb-2">Suivre</h3>
+                    <p class="text-yellow-200 text-sm">Historique des tirages + journal d'intégration</p>
+                </div>
+            </div>
+            
+            <button id="start-reading" class="bg-yellow-600 hover:bg-yellow-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 mystical-glow">
+                Commencer l'accompagnement
+            </button>
+        </div>
+    </section>
+
+    <!-- Reading Section -->
+    <section id="reading" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="title-font text-4xl md:text-5xl font-bold text-white mb-6">Your Sacred Reading</h2>
+                <p class="text-xl text-yellow-200 max-w-2xl mx-auto">
+                    Focus your mind on a question and draw three cards to reveal the wisdom of the arcana
+                </p>
+            </div>
+
+            <!-- Rituel d'accueil -->
+            <div id="ritual-section" class="mb-16 fade-in">
+                <div class="content-section rounded-lg p-8 max-w-2xl mx-auto text-center">
+                    <h3 class="title-font text-3xl font-bold text-gray-800 mb-6">Raqel-Ψ vous accompagne</h3>
+                    <p class="text-lg text-gray-700 mb-8">
+                        Avant de tirer les cartes, prenons un moment pour clarifier votre besoin. Les cartes ne décident pas pour vous - elles vous aident à voir plus clairement.
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div>
+                            <label class="block text-left font-semibold text-gray-800 mb-3">Comment vous sentez-vous maintenant ?</label>
+                            <div class="flex justify-center space-x-4">
+                                <button class="feeling-btn bg-red-100 hover:bg-red-200 text-red-800 px-4 py-2 rounded-lg transition-colors" data-feeling="stress">Stressé(e)</button>
+                                <button class="feeling-btn bg-yellow-100 hover:bg-yellow-200 text-yellow-800 px-4 py-2 rounded-lg transition-colors" data-feeling="confusion">Confus(e)</button>
+                                <button class="feeling-btn bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-lg transition-colors" data-feeling="sadness">Triste</button>
+                                <button class="feeling-btn bg-green-100 hover:bg-green-200 text-green-800 px-4 py-2 rounded-lg transition-colors" data-feeling="curiosity">Curieux(se)</button>
+                                <button class="feeling-btn bg-purple-100 hover:bg-purple-200 text-purple-800 px-4 py-2 rounded-lg transition-colors" data-feeling="peace">Apaisé(e)</button>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-left font-semibold text-gray-800 mb-3">Quel est votre besoin prioritaire ?</label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                <button class="need-btn bg-purple-100 hover:bg-purple-200 text-purple-800 px-3 py-2 rounded-lg text-sm transition-colors" data-need="clarity">Clarté</button>
+                                <button class="need-btn bg-teal-100 hover:bg-teal-200 text-teal-800 px-3 py-2 rounded-lg text-sm transition-colors" data-need="calm">Apaisement</button>
+                                <button class="need-btn bg-rose-100 hover:bg-rose-200 text-rose-800 px-3 py-2 rounded-lg text-sm transition-colors" data-need="decision">Décision</button>
+                                <button class="need-btn bg-amber-100 hover:bg-amber-200 text-amber-800 px-3 py-2 rounded-lg text-sm transition-colors" data-need="support">Soutien</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="raqel-response" class="bg-purple-50 border-l-4 border-purple-400 p-4 mb-6 hidden">
+                        <p class="text-purple-800 font-medium"></p>
+                    </div>
+                    
+                    <button id="continue-to-reading" class="bg-purple-800 hover:bg-purple-700 text-white px-8 py-3 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        Continuer vers le tirage
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card Selection Area -->
+            <div id="card-selection" class="mb-16 fade-in hidden">
+                <div class="text-center mb-8">
+                    <h3 class="title-font text-2xl text-white mb-4">Choisissez votre protocole</h3>
+                    <div class="flex flex-wrap justify-center gap-4 mb-8">
+                        <button class="spread-btn bg-purple-800 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-all" data-spread="past-present-future">
+                            Cycle de guérison<br>
+                            <span class="text-xs opacity-80">Passé → Présent → Futur</span>
+                        </button>
+                        <button class="spread-btn bg-teal-800 hover:bg-teal-700 text-white px-6 py-3 rounded-lg transition-all" data-spread="situation-action-outcome">
+                            Protocole de décision<br>
+                            <span class="text-xs opacity-80">Situation → Action → Transformation</span>
+                        </button>
+                        <button class="spread-btn bg-rose-800 hover:bg-rose-700 text-white px-6 py-3 rounded-lg transition-all" data-spread="mind-body-spirit">
+                            Scan d'alignement<br>
+                            <span class="text-xs opacity-80">Mental → Corporel → Spirituel</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card Deck -->
+                <div id="card-deck" class="flex justify-center mb-8">
+                    <div class="card-back w-32 h-48 rounded-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform mystical-glow" id="deck">
+                        <div class="text-white text-center">
+                            <div class="text-4xl mb-2">✨</div>
+                            <div class="text-sm">Draw Cards</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selected Cards -->
+                <div id="selected-cards" class="flex justify-center gap-8 flex-wrap mb-8 hidden">
+                    <div class="reading-card card-front w-32 h-48 rounded-lg p-4" id="card-1">
+                        <div class="text-center text-gray-600">
+                            <div class="text-2xl mb-2">1</div>
+                            <div class="text-xs">Past</div>
+                        </div>
+                    </div>
+                    <div class="reading-card card-front w-32 h-48 rounded-lg p-4" id="card-2">
+                        <div class="text-center text-gray-600">
+                            <div class="text-2xl mb-2">2</div>
+                            <div class="text-xs">Present</div>
+                        </div>
+                    </div>
+                    <div class="reading-card card-front w-32 h-48 rounded-lg p-4" id="card-3">
+                        <div class="text-center text-gray-600">
+                            <div class="text-2xl mb-2">3</div>
+                            <div class="text-xs">Future</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interpretation Area -->
+            <div id="interpretation" class="hidden">
+                <div class="interpretation-text rounded-lg p-8 max-w-4xl mx-auto">
+                    <h3 class="title-font text-3xl font-bold text-gray-800 mb-6 text-center">Your Reading</h3>
+                    <div id="reading-content" class="space-y-6">
+                        <!-- Interpretations will be inserted here -->
+                    </div>
+                    <div class="text-center mt-8">
+                        <button id="new-reading" class="bg-purple-800 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-all">
+                            New Reading
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 py-8">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="title-font text-2xl text-white mb-4">Raqel's Mystical Tarot</div>
+            <p class="text-gray-300">© 2025 Raqel's Mystical Tarot. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

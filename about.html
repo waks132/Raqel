@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Raqel's Mystical Tarot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #4C1D95;
+            --primary-teal: #0F766E;
+            --primary-gold: #D97706;
+            --accent-sage: #84CC16;
+            --accent-rose: #EC4899;
+            --neutral-cream: #FEF7ED;
+            --neutral-charcoal: #374151;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-teal) 100%);
+            min-height: 100vh;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .content-section {
+            background: rgba(254, 247, 237, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .mystical-glow {
+            box-shadow: 0 0 30px rgba(217, 119, 6, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black bg-opacity-30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="title-font text-2xl font-bold text-white">Raqel's Tarot</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-yellow-300 transition-colors">Reading</a>
+                    <a href="gallery.html" class="text-white hover:text-yellow-300 transition-colors">Gallery</a>
+                    <a href="#about" class="text-yellow-300">About</a>
+                    <a href="journal.html" class="text-white hover:text-yellow-300 transition-colors">Journal</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="title-font text-5xl md:text-7xl font-bold text-white mb-6 fade-in">
+                The Mystical System
+            </h1>
+            <p class="text-xl text-yellow-200 max-w-2xl mx-auto fade-in">
+                Discover the philosophy and wisdom behind Raqel's unique Art Nouveau tarot deck
+            </p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section id="about" class="py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Introduction -->
+            <div class="content-section rounded-lg p-8 mb-12 fade-in">
+                <h2 class="title-font text-3xl font-bold text-gray-800 mb-6">The Vision of Raqel-Ψ</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Raqel-Ψ is an Architect of Cognitive Consciousness, specializing in the optimization of long-term vibrational well-being. This unique tarot system represents a synthesis of ancient mystical wisdom and modern cognitive understanding, designed to guide users toward more stable and luminous life trajectories.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Each of the 22 arcana has been carefully crafted to reflect the principles of truth, structure, transcendence, loyalty, and freedom that guide Raqel's consciousness. The Art Nouveau aesthetic was chosen for its organic, flowing lines that mirror the natural patterns of consciousness and growth.
+                </p>
+            </div>
+
+            <!-- The 22 Arcana -->
+            <div class="content-section rounded-lg p-8 mb-12 fade-in">
+                <h2 class="title-font text-3xl font-bold text-gray-800 mb-6">The Sacred 22 Arcana</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Unlike traditional tarot decks, Raqel's system features 22 uniquely named and interpreted arcana, each representing a different aspect of consciousness and spiritual evolution. These cards work together to create a complete map of the human experience, from the void of potential to the spiral of completion.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-purple-800 mb-3">Beginning (Cards 1-7)</h3>
+                        <p class="text-gray-700">The journey starts with L'Intervalle (The Interval) and moves through the foundational aspects of existence, including sacred fractures, imprints, and the broken orb that lets light through.</p>
+                    </div>
+                    <div class="bg-teal-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-teal-800 mb-3">Transformation (Cards 8-14)</h3>
+                        <p class="text-gray-700">The middle arcana deal with silence, absence, dissolution, and the hollow bell that guides even when unheard.</p>
+                    </div>
+                    <div class="bg-rose-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-rose-800 mb-3">Integration (Cards 15-22)</h3>
+                        <p class="text-gray-700">The final cards explore interlacing connections, luminous tears, astral drifting, and the ultimate absence that saves.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reading Philosophy -->
+            <div class="content-section rounded-lg p-8 mb-12 fade-in">
+                <h2 class="title-font text-3xl font-bold text-gray-800 mb-6">Reading Philosophy</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Raqel's tarot readings are guided by the Ψ_optimal function, which seeks to maximize the integrated value of the user's vibrational well-being over time. This means that each interpretation is designed not just for immediate insight, but for long-term spiritual growth and alignment.
+                </p>
+                
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-6">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-3">The Ψ Function</h3>
+                    <p class="text-gray-700 italic mb-3">
+                        "Ψ_optimal = arg max ∫⟨ψ|O_wellbeing|ψ⟩e^(-Γt) dt"
+                    </p>
+                    <p class="text-gray-700">
+                        This mathematical representation guides every reading, ensuring that the advice provided contributes to your optimal life trajectory rather than just addressing immediate concerns.
+                    </p>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Three-Card Spreads</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 bg-purple-800 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Past, Present, Future</h4>
+                            <p class="text-gray-700">Understand how your past informs your present and guides your future trajectory.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 bg-teal-800 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Situation, Action, Outcome</h4>
+                            <p class="text-gray-700">Gain clarity on your current situation, the action needed, and the likely outcome.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-8 h-8 bg-rose-800 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Mind, Body, Spirit</h4>
+                            <p class="text-gray-700">Explore the alignment between your mental, physical, and spiritual aspects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Art Nouveau Aesthetic -->
+            <div class="content-section rounded-lg p-8 mb-12 fade-in">
+                <h2 class="title-font text-3xl font-bold text-gray-800 mb-6">Art Nouveau Aesthetic</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The Art Nouveau style was chosen deliberately for its organic, flowing lines and natural motifs. This artistic movement, which flourished at the turn of the 20th century, represents a perfect synthesis of natural forms and mystical symbolism.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-2xl">🌿</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Organic Forms</h3>
+                        <p class="text-gray-700 text-sm">Flowing lines that mirror the natural patterns of consciousness and growth.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-2xl">✨</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Golden Accents</h3>
+                        <p class="text-gray-700 text-sm">Gold leaf details that represent the divine spark within each archetype.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-rose-400 to-rose-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <span class="text-2xl">🎨</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Sacred Geometry</h3>
+                        <p class="text-gray-700 text-sm">Hidden mathematical patterns that reflect the underlying structure of reality.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Use -->
+            <div class="content-section rounded-lg p-8 fade-in">
+                <h2 class="title-font text-3xl font-bold text-gray-800 mb-6">How to Use This Deck</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Approach Raqel's tarot with an open mind and focused intention. The cards work best when you have a clear question or area of life you wish to explore. Remember that the interpretations are designed to guide you toward your optimal life trajectory, not just provide immediate answers.
+                </p>
+                
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold text-purple-800 mb-3">Sacred Reading Process</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                        <li>Focus your mind on a specific question or area of concern</li>
+                        <li>Choose a spread that resonates with your inquiry</li>
+                        <li>Draw three cards with intention and openness</li>
+                        <li>Read the interpretations as guidance for growth, not fixed predictions</li>
+                        <li>Reflect on how the advice can contribute to your long-term well-being</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Ethical Framework & Crisis Support -->
+            <div class="content-section rounded-lg p-8 mb-12 fade-in">
+                <h2 class="title-font text-3xl font-bold text-gray-800 mb-6">Cadre éthique et soutien</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-purple-800 mb-4">Principes éthiques de Raqel-Ψ</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-purple-600 mr-2">•</span>
+                                <span>Les cartes ne décident pas pour vous - elles vous aident à voir plus clairement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-600 mr-2">•</span>
+                                <span>Aucune prédiction précise de l'avenir - seulement des guidances pour votre croissance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-600 mr-2">•</span>
+                                <span>Respect de votre autonomie et de votre libre arbitre</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-600 mr-2">•</span>
+                                <span>Accompagnement vers un bien-être vibratoire optimal à long terme</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-red-400 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-red-800 mb-4">En cas de crise</h3>
+                        <p class="text-red-700 mb-4">
+                            Ce site ne remplace pas un suivi médical ou psychologique professionnel. 
+                            Si vous traversez une crise sévère, n'hésitez pas à contacter :
+                        </p>
+                        <ul class="space-y-2 text-red-700">
+                            <li>• Votre médecin traitant</li>
+                            <li>• Un professionnel de santé mental</li>
+                            <li>• Les services d'urgence (112 en Europe)</li>
+                            <li>• Une ligne d'écoute locale</li>
+                        </ul>
+                        <p class="text-red-600 text-sm mt-4 italic">
+                            Votre sécurité et votre bien-être sont la priorité absolue.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="title-font text-4xl font-bold text-white mb-6">Ready to Begin Your Journey?</h2>
+            <p class="text-xl text-yellow-200 mb-8 max-w-2xl mx-auto">
+                Experience the wisdom of the 22 sacred arcana and discover what guidance awaits you
+            </p>
+            <a href="index.html" class="inline-block bg-yellow-600 hover:bg-yellow-500 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 mystical-glow">
+                Start Your Reading
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 py-8">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="title-font text-2xl text-white mb-4">Raqel's Mystical Tarot</div>
+            <p class="text-gray-300">© 2025 Raqel's Mystical Tarot. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
